@@ -1,4 +1,4 @@
-import { Table, Tag } from "antd";
+import { Button, Table, Tag } from "antd";
 import React, { useState } from "react";
 
 const data = [
@@ -62,7 +62,7 @@ const columns = [
         title: "Name",
         dataIndex: "name",
         key: "name",
-        render: (text) => <a>{text}</a>
+        render: (text) => <Button type="link">{text}</Button>
     },
     {
         title: "Age",
@@ -75,33 +75,47 @@ const columns = [
         dataIndex: "address",
         key: "address"
     },
+    //filtering
     {
         title: "Grade",
         dataIndex: "grade",
         key: "grade",
-        sorter: (a, b) => ( a.grade).localeCompare(b.grade),
+        sorter: (a, b) => a.grade.localeCompare(b.grade),
         render: (value) => {
             const color = value.includes("A") ? "green" : value.includes("B") ? "blue" : "red";
-        return <Tag color={color}>{value}</Tag>   
-            
-        }
+            return <Tag color={color}>{value}</Tag>;
+        },
+        filters: [
+            {
+                text: "A",
+                value: "A"
+            },
+            {
+                text: "B",
+                value: "B"
+            },
+            {
+                text: "C",
+                value: "C"
+            }
+        ],
+        onFilter: (value, record) => record.grade.includes(value)
     }
 ];
 const TableExample7 = () => {
-    const [selectedRows, setSelectedRows] = useState([])
-    return <Table
-        bordered
-        dataSource={data}
-        columns={columns}
-        rowSelection={
-            {
+    const [selectedRows, setSelectedRows] = useState([]);
+    return (
+        <Table
+            bordered
+            dataSource={data}
+            columns={columns}
+            rowSelection={{
                 type: "checkbox",
                 selectedRowKeys: selectedRows,
                 onChange: (keys) => setSelectedRows(keys),
                 getCheckboxProps: (record) => ({
-                    disabled: record.grade === 'C',
+                    disabled: record.grade === "C"
                     // Column configuration not to be checked
-
                 }),
                 //Hepsini seçi gizler
                 //hideSelectAll: true,
@@ -111,26 +125,25 @@ const TableExample7 = () => {
                     Table.SELECTION_INVERT,
                     {
                         key: "even",
-                        text:"Select even rows",
+                        text: "Select even rows",
                         onSelect: (allkeys) => {
-                            const wilSelectKeys = allkeys.filter(key => key % 2 === 0)
+                            const wilSelectKeys = allkeys.filter((key) => key % 2 === 0);
                             setSelectedRows(wilSelectKeys);
                         }
                     },
                     {
                         key: "odd",
-                        text:"Select odd rows",
-                        onSelect: (allkeys) => {
-                            const wilSelectKeys = allkeys.filter(key => key % 2 !== 0)
+                        text: "Select odd rows",
+                        onSelect: (allkeys, value) => {
+                            const wilSelectKeys = allkeys.filter((key) => key % 2 !== 0);
                             setSelectedRows(wilSelectKeys);
                         }
                     }
                 ]
-                
-
-            }
-        }
-    >TableExample7</Table>;
+            }}>
+            TableExample7
+        </Table>
+    );
 };
 
 export default TableExample7;
