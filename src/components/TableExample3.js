@@ -69,7 +69,10 @@ const columns = [
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: () => <a>action</a>,
+      render: () => {
+          return <a>action</a>;
+      }
+    
   },
 ];
 const data = [];

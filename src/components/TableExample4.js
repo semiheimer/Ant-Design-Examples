@@ -42,16 +42,16 @@ const data = [
   },
 ]; // rowSelection object indicates the need for row selection
 
-const rowSelection = {
-  onChange: (selectedRowKeys, selectedRows) => {
-    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-  },
-  getCheckboxProps: (record) => ({
-    disabled: record.name === 'Disabled User',
-    // Column configuration not to be checked
-    name: record.name,
-  }),
-};
+// const rowSelection = {
+//   onChange: (selectedRowKeys, selectedRows) => {
+//     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+//   },
+//   getCheckboxProps: (record) => ({
+//     disabled: record.name === 'Disabled User',
+//     // Column configuration not to be checked
+//     name: record.name,
+//   }),
+// };
 
 const TableExample4= () => {
   const [selectionType, setSelectionType] = useState('checkbox');
@@ -72,7 +72,14 @@ const TableExample4= () => {
       <Table
         rowSelection={{
           type: selectionType,
-          ...rowSelection,
+          onChange: (selectedRowKeys, selectedRows) => {
+            console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+          },
+          getCheckboxProps: (record) => ({
+            disabled: record.name === 'Disabled User',
+            // Column configuration not to be checked
+            name: record.name,
+          }),
         }}
         columns={columns}
         dataSource={data}
