@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import FormExample1 from "./components/FormExample1";
 import Navbar from "./components/Navbar";
 import TableExample1 from "./components/TableExample1";
 import TableExample2 from "./components/TableExample2";
@@ -27,7 +28,8 @@ function App() {
                     <Route path="/sample6" element={<TableExample6 />}></Route>
                     <Route path="/sample7" element={<TableExample7 />}></Route>
 					<Route path="/sample8" element={<TableExample8 />}></Route>
-					<Route path="/sample9" element={<TableExample9 />}></Route>
+                    <Route path="/sample9" element={ <TableExample9 /> }></Route>
+                    <Route path="/sample10" element={<FormExample1 />}></Route>
                 </Routes>
             </header>
         </div>

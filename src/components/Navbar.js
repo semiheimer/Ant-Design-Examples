@@ -13,7 +13,8 @@ const items = [
     { label: <Link to="/sample6">Table6</Link>, key: "table6", icon: <DiffOutlined /> },
     { label: <Link to="/sample7">Table7</Link>, key: "table7", icon: <DiffOutlined /> },
     { label: <Link to="/sample8">Table8</Link>, key: "table8", icon: <DiffOutlined /> },
-    { label: <Link to="/sample9">Table9</Link>, key: "table9", icon: <DiffOutlined /> }
+    { label: <Link to="/sample9">Table9</Link>, key: "table9", icon: <DiffOutlined /> },
+    { label: <Link to="/sample10">Form1</Link>, key: "form1", icon: <DiffOutlined /> }
 ];
 const Navbar = () => {
     return <Menu mode="horizontal" items={items} />;
