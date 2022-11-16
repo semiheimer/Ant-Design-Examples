@@ -1,5 +1,6 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import CascadeExample1 from "./components/CascadeExample1";
 import FormExample1 from "./components/FormExample1";
 import Navbar from "./components/Navbar";
 import TableExample1 from "./components/TableExample1";
@@ -11,14 +12,20 @@ import TableExample6 from "./components/TableExample6";
 import TableExample7 from "./components/TableExample7";
 import TableExample8 from "./components/TableExample8";
 import TableExample9 from "./components/TableExample9";
+import Variants from "./components/Variants";
+import EditableTable from "./components/EditableTable";
+import EditableTable2 from "./components/EditableTable2";
 
-function App() {
+
+function App () {
+
+    
     return (
         <div className="App">
             <Navbar></Navbar>
+         
             <header className="App-header">
-                <h1>TABLES</h1>
-                <Routes>
+              <Routes>
                     <Route path="/" element={<div>Home PAGE</div>}></Route>
                     <Route path="/sample1" element={<TableExample1 />}></Route>
                     <Route path="/sample2" element={<TableExample2 />}></Route>
@@ -29,7 +36,11 @@ function App() {
                     <Route path="/sample7" element={<TableExample7 />}></Route>
 					<Route path="/sample8" element={<TableExample8 />}></Route>
                     <Route path="/sample9" element={ <TableExample9 /> }></Route>
-                    <Route path="/sample10" element={<FormExample1 />}></Route>
+                    <Route path="/sample10" element={ <FormExample1 /> }></Route>
+                    <Route path="/sample11" element={ <CascadeExample1 /> }></Route>
+                    <Route path="/sample12" element={ <Variants /> }></Route>
+                    <Route path="/sample13" element={ <EditableTable /> }></Route>
+                    <Route path="/sample14" element={<EditableTable2 />}></Route>
                 </Routes>
             </header>
         </div>
