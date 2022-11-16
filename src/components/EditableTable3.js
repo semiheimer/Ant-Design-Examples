@@ -6,34 +6,35 @@ function EditableTable2 () {
 	const [selectedRows, setSelectedRows] = useState([]);
 	const [form] = Form.useForm();
 	
+	const variants = { renk: [ "sarı", "kırmızı" ], ebat: [ "300", "500" ], sekil: [ "kare", "dikdörtgen" ] };
 	const columns = [
-		{
-		  title: 'Renk',
-			dataIndex: 'color',
-			width: '9%',
-		},
-		{
-		  title: 'Ebat',
-			dataIndex: 'size',
-			width: '9%',
-			// render: ( text, record,i ) => {
-			// 	const keyName = Object.keys( record ).find( key => record[ key ] === text );
-			// 		return ( <Form.Item name={`${keyName}+${i}`}
-			// 			rules={ [ { required: true, message: "Lütfen isim gir dostum" } ] }><Input />
-			// 		</Form.Item> )
-			// 	}
-		},
-		{
-		  title: 'Şekil',
-			dataIndex: 'shape',
-			width: '9%',
-			// render: ( _, record ) => {
-			// 	return ( <Form.Item name={record.key}
-			// 		rules={ [ { required: true, message:"Lütfen adres gir dostum" } ] }><Input />
-			// 	</Form.Item> )
-			// 	}
+		// {
+		//   title: 'Renk',
+		// 	dataIndex: 'color',
+		// 	width: '9%',
+		// },
+		// {
+		//   title: 'Ebat',
+		// 	dataIndex: 'size',
+		// 	width: '9%',
+		// 	// render: ( text, record,i ) => {
+		// 	// 	const keyName = Object.keys( record ).find( key => record[ key ] === text );
+		// 	// 		return ( <Form.Item name={`${keyName}+${i}`}
+		// 	// 			rules={ [ { required: true, message: "Lütfen isim gir dostum" } ] }><Input />
+		// 	// 		</Form.Item> )
+		// 	// 	}
+		// },
+		// {
+		//   title: 'Şekil',
+		// 	dataIndex: 'shape',
+		// 	width: '9%',
+		// 	// render: ( _, record ) => {
+		// 	// 	return ( <Form.Item name={record.key}
+		// 	// 		rules={ [ { required: true, message:"Lütfen adres gir dostum" } ] }><Input />
+		// 	// 	</Form.Item> )
+		// 	// 	}
 	
-		},
+		// },
 		{
 			title: 'Barkod',
 			width: '9%',
@@ -105,6 +106,9 @@ console.log(values)
     };
 	
 	useEffect( () => {
+		const keyName = Object.keys( variants );
+		columns.unshift( ...keyName.map( ( key, i ) => ( {title:key, dataIndex:variants.key} ) ) );
+		console.log( columns );
 		let data=[];
 		for ( let i = 0; i < 5; i++ ) { 
 			data.push({ key: i, color: `Kırmızı-${i}`, size: `300-${i}`, shape: `Kare-${i}` });
@@ -135,20 +139,3 @@ console.log(values)
 
 export default EditableTable2
 
-// let datacolumns = reportDataRows && Object.keys(reportDataRows[0])?.map((key) => (
-//     <span >{columns.push({
-//         title: key, dataIndex: key,
-//         //defaultSortOrder: 'descend',
-//         sorter: true
-//     })}
-//     </span>))
-
-// < Table 
-//   rowClassName = {(record, index) => index % 2 === 0 ? 'table-row-light' : 'table-row-dark'} 
-//   size = { 'default'} 
-//   columns = { columns } 
-//   bordered = { true} 
-//   sortDirections = { ['ascend', 'descend'] } 
-//   loading = { reportDataRows === undefined ? true : false} 
-//   pagination = {{ pageSize: 10 }} dataSource = { reportDataRows === undefined ? [] : reportDataRows} 
-// />

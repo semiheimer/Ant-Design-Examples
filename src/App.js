@@ -15,7 +15,8 @@ import TableExample9 from "./components/TableExample9";
 import Variants from "./components/Variants";
 import EditableTable from "./components/EditableTable";
 import EditableTable2 from "./components/EditableTable2";
-
+import Variants2 from "./components/Variants2";
+import EditableTable3 from "./components/EditableTable3";
 
 function App () {
 
@@ -23,7 +24,6 @@ function App () {
     return (
         <div className="App">
             <Navbar></Navbar>
-         
             <header className="App-header">
               <Routes>
                     <Route path="/" element={<div>Home PAGE</div>}></Route>
@@ -40,7 +40,9 @@ function App () {
                     <Route path="/sample11" element={ <CascadeExample1 /> }></Route>
                     <Route path="/sample12" element={ <Variants /> }></Route>
                     <Route path="/sample13" element={ <EditableTable /> }></Route>
-                    <Route path="/sample14" element={<EditableTable2 />}></Route>
+                    <Route path="/sample14" element={ <EditableTable2 /> }></Route>
+                    <Route path="/sample15" element={ <Variants2 /> }></Route>
+                    <Route path="/sample16" element={<EditableTable3 />}></Route>
                 </Routes>
             </header>
         </div>

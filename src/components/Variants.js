@@ -9,11 +9,10 @@ const Variants = () => {
     const [abc,setAbc] =useState(undefined);
 
 	const columns = () => {    
-        const abc1 = variants.renk.map( ( renk ) => {
-          
+        const abc1 = variants.renk.map( ( renk ) => {         
             return variants.ebat.map( ( ebat ) => {
                 return variants.sekil.map( ( sekil ) => {
-                    console.log( renk, ebat, sekil );
+                    // console.log( renk, ebat, sekil );
                     return (<Row><Space
                         key={ renk+ebat+sekil }
                         style={ {
@@ -35,7 +34,7 @@ const Variants = () => {
         setAbc( abc1 );
     }
 
-console.log(abc)
+// console.log(abc)
     useEffect( () => { columns(); },[]);
   return (
       <><h3>Varyants</h3>

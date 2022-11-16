@@ -14,19 +14,24 @@ import { Link } from "react-router-dom";
 const items = [
   {
     label: <Link to="/sample10">Form1</Link>,
-    key: "form1",
+    key: "sample10",
     icon: <DiffOutlined />,
   },
   {
     label: <Link to="/sample11">Cascade1</Link>,
-    key: "cascade1",
+    key: "sample11",
     icon: <DiffOutlined />,
   },
   {
     label: <Link to="/sample12">Variants</Link>,
-    key: "variants",
+    key: "sample12",
     icon: <DiffOutlined />,
-  },
+    },
+    {
+        label: <Link to="/sample15">Variants2</Link>,
+        key: "sample15",
+        icon: <DiffOutlined />,
+      },
 ];
 const itemsTables = [
   {
@@ -74,7 +79,9 @@ const itemsTables = [
     key: "table9",
     icon: <DiffOutlined />,
   },
-  {
+
+];
+const editableTable=[  {
     label: <Link to="/sample13">Editable Table</Link>,
     key: "table13",
     icon: <DiffOutlined />,
@@ -83,23 +90,31 @@ const itemsTables = [
     label: <Link to="/sample14">Editable Table2</Link>,
     key: "table14",
     icon: <DiffOutlined />,
-  },
-];
+    },
+    {
+        label: <Link to="/sample16">Editable Table3</Link>,
+        key: "table16",
+        icon: <DiffOutlined />,
+      },]
 const Navbar = () => {
   const menu = (
     <Menu
-      mode="horizontal"
       items={itemsTables}
       style={{ display: "flex", flexDirection: "row" }}
     />
   );
   const menuOther = (
     <Menu
-      mode="horizontal"
       items={items}
       style={{ display: "flex", flexDirection: "row" }}
     />
-  );
+    );
+    const menueditableTable = (
+        <Menu
+          items={editableTable}
+          style={{ display: "flex", flexDirection: "row" }}
+        />
+      );
   return (
     <Space>
       <Link to="/">Home</Link>
@@ -107,6 +122,14 @@ const Navbar = () => {
         <a onClick={(e) => e.preventDefault()}>
           <Space>
             Tables
+            <DownOutlined />
+          </Space>
+        </a>
+          </Dropdown>
+          <Dropdown overlay={menueditableTable}>
+        <a onClick={(e) => e.preventDefault()}>
+          <Space>
+          Editable Tables
             <DownOutlined />
           </Space>
         </a>
