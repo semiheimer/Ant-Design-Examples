@@ -5,7 +5,7 @@ import {
 } from "@ant-design/icons";
 import { Dropdown, Menu, Space } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // const itemsHome = [
 //   { label: <Link to="/">Home</Link>, key: "home", icon: <AppstoreOutlined /> },
@@ -95,7 +95,15 @@ const editableTable=[  {
         label: <Link to="/sample16">Editable Table3</Link>,
         key: "table16",
         icon: <DiffOutlined />,
-      },]
+  },]
+    
+  const imageExample=[  {
+    label: <Link to="/sample17">Image Hover Example</Link>,
+    key: "image1",
+    icon: <DiffOutlined />,
+  },
+]
+      
 const Navbar = () => {
   const menu = (
     <Menu
@@ -114,41 +122,55 @@ const Navbar = () => {
           items={editableTable}
           style={{ display: "flex", flexDirection: "row" }}
         />
-      );
+  );
+  const menuImageExamples = (
+    <Menu
+      items={imageExample}
+      style={{ display: "flex", flexDirection: "row" }}
+    />
+  );
   return (
     <Space>
       <Link to="/">Home</Link>
       <Dropdown overlay={menu}>
-        <a onClick={(e) => e.preventDefault()}>
+        <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
             Tables
             <DownOutlined />
           </Space>
-        </a>
+        </NavLink>
           </Dropdown>
           <Dropdown overlay={menueditableTable}>
-        <a onClick={(e) => e.preventDefault()}>
+        <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
           Editable Tables
             <DownOutlined />
           </Space>
-        </a>
+        </NavLink>
       </Dropdown>
       <Dropdown overlay={menuOther}>
-        <a onClick={(e) => e.preventDefault()}>
+        <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
             Forms
             <DownOutlined />
           </Space>
-        </a>
+        </NavLink>
       </Dropdown>
       <Dropdown overlay={menuOther}>
-        <a onClick={(e) => e.preventDefault()}>
+        <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
             Other Examples
             <DownOutlined />
           </Space>
-        </a>
+        </NavLink>
+      </Dropdown>
+      <Dropdown overlay={menuImageExamples}>
+        <NavLink onClick={(e) => e.preventDefault()}>
+          <Space>
+       Images
+            <DownOutlined />
+          </Space>
+        </NavLink>
       </Dropdown>
     </Space>
   );

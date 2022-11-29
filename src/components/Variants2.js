@@ -6,17 +6,24 @@ import { ConsoleSqlOutlined } from "@ant-design/icons";
 const { Text } = Typography;
 
 const Variants2 = () => {
-	const variants = { renk: [ "sarı", "kırmızı" ], ebat: [ "300", "500" ], sekil: [ "kare", "dikdörtgen" ] };
+	const variants = { renk: [{ renk: "sarı" }, { renk: "kırmızı" }], ebat: [{ ebat: "300" }, { ebat: "500" }], sekil: [{ sekil: "kare" }, { sekil: "dikdörtgen" }] };
+
     const [abc,setAbc] =useState(undefined);
 	const myFunc2 = () => {
 		let keysArr = []
 		Object.keys(variants).map((item, index) => keysArr.push(variants[item]))
 		// console.log('keysArr', keysArr)
-	  const result = cartesian(keysArr)
-	  //console.log('result', result)
+		// console.log(Object.values(variants))
+		// keysArr = Object.values(variants);
+		const result = cartesian(keysArr)
+
+		console.log('result', result)
+		
+		const tabledata = result.map((item, index) => ({ ...item }));
+		console.log(tabledata);
 		const abc=result.map( ( item,i ) => { 
 			const den= item.map( ( object,i ) => {
-				console.log(object,i)
+			//	console.log(object,i)
 				return (<Form.Item key={i+1}><Text>{ object }</Text></Form.Item>)
 			} )	
 			return <Space key={i+1}>{ den}</Space>
@@ -24,20 +31,22 @@ const Variants2 = () => {
 		} );
 		setAbc( abc );
 	}
-	console.log(abc)
+	//console.log(abc)
 	const cartesian = (args)  => {
-	  var r = [], max = args.length-1;
+		let r = []
+		let max = args.length - 1;
 	  function helper(arr, i) {
 		  for (let j=0, l=args[i].length; j<l; j++) {
 			  let a = arr.slice(0); // clone arr
+			//   console.log(a)
+			//   console.log(args[i][j])
 			  a.push(args[i][j]);
 			  if (i==max)
 				  r.push(a);
 			  else
-				  helper( a, i + 1 );
-		
-		  }
-	
+				  helper(a, i + 1);		
+			//   console.log(r)
+		  }	
 	  }
 	  helper([], 0);
 	  return r;

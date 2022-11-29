@@ -12,11 +12,15 @@ import TableExample6 from "./components/TableExample6";
 import TableExample7 from "./components/TableExample7";
 import TableExample8 from "./components/TableExample8";
 import TableExample9 from "./components/TableExample9";
-import Variants from "./components/Variants";
+
 import EditableTable from "./components/EditableTable";
 import EditableTable2 from "./components/EditableTable2";
-import Variants2 from "./components/Variants2";
 import EditableTable3 from "./components/EditableTable3";
+
+import Variants from "./components/Variants";
+import Variants2 from "./components/Variants2";
+import ImageExample from "./components/ImageExample";
+
 
 function App () {
 
@@ -43,6 +47,7 @@ function App () {
                     <Route path="/sample14" element={ <EditableTable2 /> }></Route>
                     <Route path="/sample15" element={ <Variants2 /> }></Route>
                     <Route path="/sample16" element={<EditableTable3 />}></Route>
+                    <Route path="/sample17" element={<ImageExample />}></Route>
                 </Routes>
             </header>
         </div>

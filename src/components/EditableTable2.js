@@ -109,10 +109,11 @@ console.log(values)
 		for ( let i = 0; i < 5; i++ ) { 
 			data.push({ key: i, color: `Kırmızı-${i}`, size: `300-${i}`, shape: `Kare-${i}` });
 		}
-		setDataSource( data );
+		setDataSource(data);
+		
 
 	}, [] );
-
+console.log(dataSource)
 	return (
 		
 		<Form form={form}
