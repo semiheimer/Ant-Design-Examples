@@ -1,8 +1,10 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
 import CascadeExample1 from "./components/CascadeExample1";
 import FormExample1 from "./components/FormExample1";
-import Navbar from "./components/Navbar";
+
 import TableExample1 from "./components/TableExample1";
 import TableExample2 from "./components/TableExample2";
 import TableExample3 from "./components/TableExample3";
@@ -20,11 +22,10 @@ import EditableTable3 from "./components/EditableTable3";
 import Variants from "./components/Variants";
 import Variants2 from "./components/Variants2";
 import ImageExample from "./components/ImageExample";
-
+import FormExample2 from "./components/FormExample2";
 
 function App () {
-
-    
+  
     return (
         <div className="App">
             <Navbar></Navbar>
@@ -47,7 +48,8 @@ function App () {
                     <Route path="/sample14" element={ <EditableTable2 /> }></Route>
                     <Route path="/sample15" element={ <Variants2 /> }></Route>
                     <Route path="/sample16" element={<EditableTable3 />}></Route>
-                    <Route path="/sample17" element={<ImageExample />}></Route>
+                    <Route path="/sample17" element={ <ImageExample /> }></Route>
+                    <Route path="/sample18" element={<FormExample2 />}></Route>
                 </Routes>
             </header>
         </div>

@@ -26,12 +26,17 @@ const items = [
     label: <Link to="/sample12">Variants</Link>,
     key: "sample12",
     icon: <DiffOutlined />,
-    },
-    {
-        label: <Link to="/sample15">Variants2</Link>,
-        key: "sample15",
-        icon: <DiffOutlined />,
-      },
+  },
+  {
+    label: <Link to="/sample15">Variants2</Link>,
+    key: "sample15",
+    icon: <DiffOutlined />,
+  },
+  {
+    label: <Link to="/sample18">Form2</Link>,
+    key: "sample18",
+    icon: <DiffOutlined />,
+  },
 ];
 const itemsTables = [
   {
