@@ -22,17 +22,25 @@ const PriceInput = ({ value = "", onChange }) => {
 
 	const onNumberChange = ( e ) => {
 
-    const cardInput = e.target.value.replace( /\D/g, "" ).slice( 0, 12 );
+    // let wsRegex = /^\s+|\s+$/g; 
+    // let result = e.target.value.replace(wsRegex, "0");
+    // console.log(result)
+		const cardInput = e.target.value.replace( /[^0-9\\.]+/g, "" ).slice( 0, 5 );
+		console.log( "cardInput",cardInput );
+
+		// const newNumber = parseInt( cardInput || "0" , 10 );
 
     triggerChange(
       cardInput
     );
 	};
-
+  // const den = " j78- * i 79".replace(/[^0-9\\.]+/g, '');
+  // console.log(den);
   return (
 
       <Input
         type="text"
+       //value={value.number || number}
 		 value={ ( cardNumberFormatter(value) ) }
         onChange={onNumberChange}
       />
@@ -47,10 +55,10 @@ const FormExample2 = () => {
 	
 	const checkPrice = ( _, value ) => {
 
-    if (value?.length===12) {
+    if (value?.length===5) {
       return Promise.resolve();
     }
-    return Promise.reject(new Error('Kart numarası 12 hane olmalıdır!'));
+    return Promise.reject(new Error('Kart numarası 5 hane olmalıdır!'));
 	};
 	
   return (
@@ -80,3 +88,5 @@ const FormExample2 = () => {
 };
 
 export default FormExample2;
+
+//const cardInput = e.target.value.replace( /\D/g, "" ).slice( 0, 16 );
