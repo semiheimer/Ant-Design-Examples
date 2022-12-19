@@ -23,6 +23,9 @@ import Variants from "./components/Variants";
 import Variants2 from "./components/Variants2";
 import ImageExample from "./components/ImageExample";
 import FormExample2 from "./components/FormExample2";
+import IframeComp from "./components/customIframe/IframeComp";
+import IframeExample from "./components/IframeExample";
+
 
 function App () {
   
@@ -50,6 +53,8 @@ function App () {
                     <Route path="/sample16" element={<EditableTable3 />}></Route>
                     <Route path="/sample17" element={ <ImageExample /> }></Route>
                     <Route path="/sample18" element={<FormExample2 />}></Route>
+                    <Route path="/sample19" element={<IframeComp />}></Route>
+                    <Route path="/sample20" element={<IframeExample />}></Route>
                 </Routes>
             </header>
         </div>

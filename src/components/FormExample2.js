@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Form, Input, Select } from 'antd';
-
+import { Button, DatePicker, Form, Input, Select } from 'antd';
+import dayjs from 'dayjs';
 
 export const cardNumberFormatter = ( number ) => {
     const rawText = [...number.split(" ").join("")]; 
@@ -51,7 +51,11 @@ const FormExample2 = () => {
       return Promise.resolve();
     }
     return Promise.reject(new Error('Kart numarası 12 hane olmalıdır!'));
-	};
+  };
+  const disabledDate = (current) => {
+    // Can not select days before today and today
+    return current && current < dayjs().endOf('day');
+  };
 	
   return (
     <Form
@@ -60,11 +64,18 @@ const FormExample2 = () => {
       onFinish={onFinish}
     >
       <Form.Item
-        name="price"
+        name="card_number"
         label="Price"
         rules={[
           {
-            validator: checkPrice,
+            required: true,
+            message: "Lütfen kart numarası giriniz!"
+          },
+
+          {
+            min: 12,
+            max: 12,
+            message:"Kart numarası 12 hane olmalıdır!"
           },
         ]}
       >
@@ -75,6 +86,8 @@ const FormExample2 = () => {
           Submit
         </Button>
       </Form.Item>
+
+   <DatePicker picker="month" disabledDate={disabledDate} />
     </Form>
   );
 };

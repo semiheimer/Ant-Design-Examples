@@ -108,6 +108,18 @@ const editableTable=[  {
     icon: <DiffOutlined />,
   },
 ]
+const iframeExample=[  {
+  label: <Link to="/sample20">Iframe</Link>,
+  key: "sample20",
+  icon: <DiffOutlined />,
+},
+{
+  label: <Link to="/sample19">CustomIframe</Link>,
+  key: "sample19",
+  icon: <DiffOutlined />,
+  },
+  
+]
       
 const Navbar = () => {
   const menu = (
@@ -131,6 +143,12 @@ const Navbar = () => {
   const menuImageExamples = (
     <Menu
       items={imageExample}
+      style={{ display: "flex", flexDirection: "row" }}
+    />
+  );
+  const Iframe = (
+    <Menu
+      items={iframeExample}
       style={{ display: "flex", flexDirection: "row" }}
     />
   );
@@ -173,6 +191,14 @@ const Navbar = () => {
         <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
        Images
+            <DownOutlined />
+          </Space>
+        </NavLink>
+      </Dropdown>
+      <Dropdown overlay={Iframe}>
+        <NavLink onClick={(e) => e.preventDefault()}>
+          <Space>
+          Iframe Examples
             <DownOutlined />
           </Space>
         </NavLink>
