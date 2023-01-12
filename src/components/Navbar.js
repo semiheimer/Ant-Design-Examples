@@ -84,9 +84,9 @@ const itemsTables = [
     key: "table9",
     icon: <DiffOutlined />,
   },
-
 ];
-const editableTable=[  {
+const editableTable = [
+  {
     label: <Link to="/sample13">Editable Table</Link>,
     key: "table13",
     icon: <DiffOutlined />,
@@ -95,32 +95,42 @@ const editableTable=[  {
     label: <Link to="/sample14">Editable Table2</Link>,
     key: "table14",
     icon: <DiffOutlined />,
-    },
-    {
-        label: <Link to="/sample16">Editable Table3</Link>,
-        key: "table16",
-        icon: <DiffOutlined />,
-  },]
-    
-  const imageExample=[  {
+  },
+  {
+    label: <Link to="/sample16">Editable Table3</Link>,
+    key: "table16",
+    icon: <DiffOutlined />,
+  },
+];
+
+const imageExample = [
+  {
     label: <Link to="/sample17">Image Hover Example</Link>,
     key: "image1",
     icon: <DiffOutlined />,
   },
-]
-const iframeExample=[  {
-  label: <Link to="/sample20">Iframe</Link>,
-  key: "sample20",
-  icon: <DiffOutlined />,
-},
-{
-  label: <Link to="/sample19">CustomIframe</Link>,
-  key: "sample19",
-  icon: <DiffOutlined />,
+];
+const iframeExample = [
+  {
+    label: <Link to="/sample20">Iframe</Link>,
+    key: "sample20",
+    icon: <DiffOutlined />,
   },
-  
-]
-      
+  {
+    label: <Link to="/sample19">CustomIframe</Link>,
+    key: "sample19",
+    icon: <DiffOutlined />,
+  },
+];
+const imaskExample = [
+
+  {
+    label: <Link to="/sample21">ImaskExample1</Link>,
+    key: "sample21",
+    icon: <DiffOutlined />,
+  },
+];
+
 const Navbar = () => {
   const menu = (
     <Menu
@@ -129,16 +139,13 @@ const Navbar = () => {
     />
   );
   const menuOther = (
+    <Menu items={items} style={{ display: "flex", flexDirection: "row" }} />
+  );
+  const menueditableTable = (
     <Menu
-      items={items}
+      items={editableTable}
       style={{ display: "flex", flexDirection: "row" }}
     />
-    );
-    const menueditableTable = (
-        <Menu
-          items={editableTable}
-          style={{ display: "flex", flexDirection: "row" }}
-        />
   );
   const menuImageExamples = (
     <Menu
@@ -152,6 +159,11 @@ const Navbar = () => {
       style={{ display: "flex", flexDirection: "row" }}
     />
   );
+  const ImaskExampleMenu = (
+    <Menu
+      items={imaskExample}
+      style={{ display: "flex", flexDirection: "row" }}
+    />)
   return (
     <Space>
       <Link to="/">Home</Link>
@@ -162,11 +174,11 @@ const Navbar = () => {
             <DownOutlined />
           </Space>
         </NavLink>
-          </Dropdown>
-          <Dropdown overlay={menueditableTable}>
+      </Dropdown>
+      <Dropdown overlay={menueditableTable}>
         <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
-          Editable Tables
+            Editable Tables
             <DownOutlined />
           </Space>
         </NavLink>
@@ -190,7 +202,7 @@ const Navbar = () => {
       <Dropdown overlay={menuImageExamples}>
         <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
-       Images
+            Images
             <DownOutlined />
           </Space>
         </NavLink>
@@ -198,7 +210,15 @@ const Navbar = () => {
       <Dropdown overlay={Iframe}>
         <NavLink onClick={(e) => e.preventDefault()}>
           <Space>
-          Iframe Examples
+            Iframe Examples
+            <DownOutlined />
+          </Space>
+        </NavLink>
+      </Dropdown>
+      <Dropdown overlay={ImaskExampleMenu}>
+        <NavLink onClick={(e) => e.preventDefault()}>
+          <Space>
+            Imask Examples
             <DownOutlined />
           </Space>
         </NavLink>
