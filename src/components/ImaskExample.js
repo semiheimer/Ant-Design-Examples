@@ -1,7 +1,7 @@
 import { Button, Form } from "antd";
 import React from "react";
 import CustomInput from "./CustomInputMask";
-//rest
+//restoft
 const ImaskExample = () => {
   const handleSubmit = async (values) => {
     console.log(values);
